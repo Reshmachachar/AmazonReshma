@@ -53,6 +53,7 @@ public class amazonTest extends BaseTest
 		 {
 			 System.out.println(list1.getText());
 			 System.out.println("Program end successfully");
+			 System.out.println("Program end successfully");
 		 }
 	
 	}
