@@ -2,6 +2,7 @@ package com.amazon.Test;
 
 import static org.testng.Assert.assertEquals;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -16,8 +17,10 @@ import org.testng.annotations.Test;
 import com.amazon.Pages.amazonPage;
 import com.amazon.common.BaseTest;
 
+
 public class amazonTest extends BaseTest
 {
+	WebDriver driver;
 	public int maxVal=1000;
 	amazonPage am;
 	Actions act;
@@ -25,9 +28,14 @@ public class amazonTest extends BaseTest
 	String pricepath;
 	
 	@Test
-	public void amazonInfo() throws InterruptedException
+	public void amazonInfo() throws InterruptedException, IOException
 	{
+		driver = initiliseDriver();
+		
+		driver.get(pro.getProperty("baseurl"));
+		
 		 am=new amazonPage(driver);
+		 
 		 Thread.sleep(2);
 		 am.getTextEnter().sendKeys("phone",Keys.ENTER);
 		
@@ -39,7 +47,7 @@ public class amazonTest extends BaseTest
 		 
 		 
 		// List<WebElement> list=driver.findElements(By.xpath(am.priceList));
-		 List<WebElement> list = driver.findElements(By.xpath("//h2[@class='a-size-mini a-spacing-none a-color-base s-line-clamp-4']"));
+		 List<WebElement> list = driver.findElements(By.xpath("a//h2[@class='a-size-mini a-spacing-none a-color-base s-line-clamp-4']"));
 		 
 		 for(WebElement list1:list)
 		 {

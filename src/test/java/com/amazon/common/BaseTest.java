@@ -29,7 +29,7 @@ public class BaseTest
 	public static Properties pro;
 
 	@BeforeMethod
-	public void setup() throws IOException 
+	public WebDriver initiliseDriver() throws IOException 
 	{
 		pro = new Properties();
 		String path = System.getProperty("user.dir") + "./src/test/java/com/amazon/Utility/config.properties";
@@ -53,6 +53,7 @@ public class BaseTest
 
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
 		driver.get(pro.getProperty("baseurl"));
+		return driver;
 	}
 	public static String takesScreenshot(String testName) throws IOException
 	{		
